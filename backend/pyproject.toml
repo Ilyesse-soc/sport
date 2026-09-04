@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sport-backend"
+version = "0.1.0"
+description = "Sport backend service"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "sqlalchemy",
+  "alembic",
+  "pydantic",
+  "pydantic-settings",
+  "psycopg[binary]",
+  "PyJWT[crypto]",
+  "passlib",
+  "python-multipart",
+  "slowapi",
+  "httpx",
+  "google-genai",
+  "supabase",
+  "pillow",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "--cov=app"
