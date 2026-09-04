@@ -2,8 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000/api/v1";
+import { apiPost } from "@/services/api";
 
 export default function AuthPage() {
   const router = useRouter();
@@ -17,19 +16,17 @@ export default function AuthPage() {
     event.preventDefault();
     setError("");
     const path = mode === "login" ? "/auth/login" : "/auth/register";
-    const response = await fetch(`${API_BASE}${path}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(mode === "login" ? { email, password } : { email, password, first_name: firstName }),
-    });
-    if (!response.ok) {
+    try {
+      const data = await apiPost<{ access_token: string; user_id: string }>(
+        path,
+        mode === "login" ? { email, password } : { email, password, first_name: firstName },
+      );
+      window.localStorage.setItem("sport_token", data.access_token);
+      window.localStorage.setItem("sport_user_id", data.user_id);
+      router.push("/");
+    } catch {
       setError("Echec authentification");
-      return;
     }
-    const data = await response.json();
-    window.localStorage.setItem("sport_token", data.access_token);
-    window.localStorage.setItem("sport_user_id", data.user_id);
-    router.push("/");
   }
 
   return (
