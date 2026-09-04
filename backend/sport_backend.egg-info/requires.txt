@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic
+pydantic[email]
+pydantic-settings
+psycopg[binary]
+PyJWT[crypto]
+passlib
+python-multipart
+slowapi
+httpx
+google-genai
+supabase
+pillow

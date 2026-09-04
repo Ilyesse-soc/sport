@@ -12,7 +12,7 @@ dependencies = [
   "uvicorn[standard]",
   "sqlalchemy",
   "alembic",
-  "pydantic",
+  "pydantic[email]",
   "pydantic-settings",
   "psycopg[binary]",
   "PyJWT[crypto]",

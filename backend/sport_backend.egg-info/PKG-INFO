@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: sport-backend
+Version: 0.1.0
+Summary: Sport backend service
+Requires-Python: >=3.12
+Requires-Dist: fastapi
+Requires-Dist: uvicorn[standard]
+Requires-Dist: sqlalchemy
+Requires-Dist: alembic
+Requires-Dist: pydantic[email]
+Requires-Dist: pydantic-settings
+Requires-Dist: psycopg[binary]
+Requires-Dist: PyJWT[crypto]
+Requires-Dist: passlib
+Requires-Dist: python-multipart
+Requires-Dist: slowapi
+Requires-Dist: httpx
+Requires-Dist: google-genai
+Requires-Dist: supabase
+Requires-Dist: pillow
