@@ -29,3 +29,8 @@ dependencies = [
 testpaths = ["tests"]
 asyncio_mode = "auto"
 addopts = "--cov=app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+exclude = ["alembic*", "tests*"]
